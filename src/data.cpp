@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include "include/data.h"
+#include "include/Exceptions.h"
 
 class DataPoint{
     protected:
@@ -35,6 +36,7 @@ class DataPoint{
         }
 };
 
+
 class DataSet {
     protected:
         vector<DataPoint> points;
@@ -43,7 +45,7 @@ class DataSet {
             ifstream file(filename);
 
         if (!file.is_open())
-            throw runtime_error("Unable to open CSV file");
+            throw ErrorFileOpening();
 
         points.clear();
 
@@ -65,6 +67,7 @@ class DataSet {
             while (getline(ss, value, ','))
             {
                 values.push_back(stod(value));
+                
             }
 
             if (!values.empty())
@@ -73,6 +76,7 @@ class DataSet {
 
         file.close();
     }
+
         void display() const{
             for (const DataPoint& p : points){
                 p.display_1();

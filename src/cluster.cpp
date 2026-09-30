@@ -1,9 +1,14 @@
 #include "include/cluster.h"
+#include "Exceptions.h"
 #include <bits/stdc++.h>
 
 Cluster :: Cluster(const DataPoint &c): centroid(c){}
 
 void Cluster ::add(const DataPoint &point){
+    if (!members.empty() && point.getdim() != members[0].getdim())
+    {
+        throw DimensionMismatchException();
+    }
     members.push_back(point);
 } 
 
