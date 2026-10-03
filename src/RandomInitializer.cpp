@@ -1,11 +1,14 @@
-#include "include/RandomInitializer.h"
-#include "include/Exceptions.h"
+#include "RandomInitializer.h"
+#include "Exceptions.h"
 #include <bits/stdc++.h>
 
 using namespace std;
 
 vector<DataPoint> RandomInitializer :: Initialise(DataSet &d,int k){
     const vector<DataPoint>points =d.getPoints();
+    if(points.empty()){
+        throw EmptyDataSet();
+    }
     if(k<=0 || k>points.size()){
         throw InvalidKException();
     }

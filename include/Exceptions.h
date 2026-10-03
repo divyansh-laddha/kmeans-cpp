@@ -27,6 +27,10 @@ class ErrorFileOpening: public ProjectException{
         ErrorFileOpening() : ProjectException("Unable to Open CSV File."){}
 };
 
+class EmptyDataSet : public ProjectException{
+    public: 
+        EmptyDataSet() : ProjectException("DataSet is Empty."){}
+};
 
 
 class DimensionMismatchException : public ProjectException{

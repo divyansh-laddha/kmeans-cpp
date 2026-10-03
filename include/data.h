@@ -8,11 +8,12 @@ class DataPoint{
     protected:
         vector<double>point;
     public:
+        friend class DataSet;
         DataPoint(vector<double>&values);
         double dist_square(const DataPoint &other) const;
         void display_1() const;
         int getdim() const;
-        vector<double> &getvalues() const;
+        const vector<double> &getvalues() const;
 };
 
 class DataSet {
@@ -21,7 +22,8 @@ class DataSet {
     public:
         void loadCSV(string filename);
         void display() const;
-        vector<DataPoint>& getPoints() const;
+        const vector<DataPoint>& getPoints() const;
+        void normalize();
 };
 
 
