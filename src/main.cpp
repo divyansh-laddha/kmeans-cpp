@@ -65,16 +65,10 @@ int main()
             cout << "Enter number of clusters (K): ";
             cin >> k;
 
-            cout << "Enter max iterations (e.g. 100): ";
+            cout << "Enter max iterations : ";
             cin >> maxIter;
 
-            if (cin.fail() || maxIter <= 0)
-            {
-                cout << "Invalid input for K or iterations.\n";
-                cin.clear();
-                cin.ignore(10000, '\n');
-                continue;
-            }
+           
 
             if (choice == 4)
             {
